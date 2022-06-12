@@ -1,9 +1,8 @@
-import "./App.css";
 import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <div className="App bg-orange-200 h-screen">
+    <div className="App bg-orange-200 overflow-auto h-screen ">
       <Home />
     </div>
   );

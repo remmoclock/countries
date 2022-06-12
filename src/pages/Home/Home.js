@@ -4,8 +4,14 @@ import axios from "axios";
 function Home() {
   const [data, setData] = useState([]);
 
-  const flags = data.map((d) => {
-    return <h1 className="text-3xl font-bold text-red-900">{d.flag}</h1>;
+  const showFlags = data.map((d, ix) => {
+    return (
+      <div key={ix} className="m-3 p-2">
+        {/* {d.name.common} */}
+        {/* <div className="text-9xl">{d.flag}</div> */}
+        <img className="object-cover w-[150px] h-[100px]" src={d.flags.svg} alt="" />
+      </div>
+    );
   });
 
   const fetchData = () => {
@@ -21,9 +27,11 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold text-red-900">World Flags</h1>
-      {flags}
+    <div className="">
+      <div className="text-center text-3xl font-bold text-red-900 mb-5">
+        World Flags
+      </div>
+      <div className="flex flex-wrap ">{showFlags}</div>
     </div>
   );
 }
