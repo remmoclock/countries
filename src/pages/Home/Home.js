@@ -4,11 +4,9 @@ import axios from "axios";
 function Home() {
   const [data, setData] = useState([]);
 
-  const showFlags = data.map((country) => {
+  const showFlags = data.map((country, ix) => {
     return (
-      <countryiv key={country.name.common} className="m-3 p-2">
-        {/* {d.name.common} */}
-        {/* <div className="text-9xl">{d.flag}</div> */}
+      <div key={ix} className="m-3 p-2">
         <img className="object-cover w-[150px] h-[100px]" src={country.flags.svg} alt="" />
       </div>
     );
