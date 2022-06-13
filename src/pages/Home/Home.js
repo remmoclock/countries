@@ -1,13 +1,19 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Loader from "../../components/Loader/Loader";
 
 function Home() {
   const [data, setData] = useState([]);
+  const [loader, setLoader] = useState(true);
 
   const showFlags = data.map((country, ix) => {
     return (
       <div key={ix} className="m-3 p-2">
-        <img className="object-cover w-[150px] h-[100px]" src={country.flags.svg} alt="" />
+        <img
+          className="object-cover w-[150px] h-[100px]"
+          src={country.flags.svg}
+          alt=""
+        />
       </div>
     );
   });
@@ -17,6 +23,7 @@ function Home() {
       const data = res.data;
       console.log("data", data);
       setData(data);
+      setLoader(false);
     });
   };
 
@@ -24,7 +31,9 @@ function Home() {
     fetchData();
   }, []);
 
-  return (
+  return loader ? (
+    <Loader />
+  ) : (
     <div className="">
       <div className="text-center text-3xl font-bold text-red-900 mb-5">
         World Flags

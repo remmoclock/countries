@@ -5,7 +5,6 @@ function App() {
   return (
     <div className="App bg-orange-200 overflow-auto h-screen ">
       <Home />
-      <Loader />
     </div>
   );
 }
