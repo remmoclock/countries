@@ -38,7 +38,7 @@ function Home() {
       <div className="text-center text-3xl font-bold text-red-900 m-5">
         World Flags
       </div>
-      <div className="flex flex-wrap justify-evenly">{showFlags}</div>
+      <div className="flex flex-wrap justify-center">{showFlags}</div>
     </div>
   );
 }
