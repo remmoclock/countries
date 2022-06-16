@@ -38,6 +38,15 @@ function Home() {
       <div className="text-center text-3xl font-bold text-red-900 m-5">
         World Flags
       </div>
+      <div class="text-center text-gray-500 m-5 p-5">
+        <input
+          type="text"
+          class="p-2 rounded rounded-full bg-white outline-none ring-1 focus:ring-2 ring-yellow-600 border-transparent"
+          placeholder="search..."
+          value=""
+        />
+      </div>
+
       <div className="flex flex-wrap justify-center">{showFlags}</div>
     </div>
   );
