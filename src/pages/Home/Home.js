@@ -35,10 +35,10 @@ function Home() {
     <Loader />
   ) : (
     <div className="">
-      <div className="text-center text-3xl font-bold text-red-900 mb-5">
+      <div className="text-center text-3xl font-bold text-red-900 m-5">
         World Flags
       </div>
-      <div className="flex flex-wrap ">{showFlags}</div>
+      <div className="flex flex-wrap justify-evenly">{showFlags}</div>
     </div>
   );
 }
