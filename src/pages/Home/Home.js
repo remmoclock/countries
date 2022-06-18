@@ -16,6 +16,7 @@ function Home() {
   console.log("rangeValue", rangeValue);
 
   const showFlags = data
+    .sort((a, b) => a.name.common.localeCompare(b.name.common))
     .filter((flag) => {
       return flag.name.common.toLowerCase().includes(search.toLowerCase());
     })
@@ -28,7 +29,7 @@ function Home() {
             src={country.flags.svg}
             alt=""
           />
-          {/* <div>{country.name.common}</div> */}
+          <div className="text-center">{country.name.common}</div>
         </div>
       );
     });
