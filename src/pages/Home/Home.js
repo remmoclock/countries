@@ -12,22 +12,26 @@ function Home() {
     fetchData();
   }, []);
 
-
   console.log("search", search);
   console.log("rangeValue", rangeValue);
 
-  
-  const showFlags = data.slice(0, rangeValue).map((country, ix) => {
-    return (
-      <div key={ix} className="m-3 p-2">
-        <img
-          className="object-cover w-[150px] h-[100px]"
-          src={country.flags.svg}
-          alt=""
-        />
-      </div>
-    );
-  });
+  const showFlags = data
+    .filter((flag) => {
+      return flag.name.common.toLowerCase().includes(search.toLowerCase());
+    })
+    .slice(0, rangeValue)
+    .map((country, ix) => {
+      return (
+        <div key={ix} className="m-3 p-2">
+          <img
+            className="object-cover w-[150px] h-[100px]"
+            src={country.flags.svg}
+            alt=""
+          />
+          {/* <div>{country.name.common}</div> */}
+        </div>
+      );
+    });
 
   const filteredCountries =
     data &&
@@ -60,14 +64,14 @@ function Home() {
           type="text"
           className="p-2 rounded rounded-full bg-white outline-none ring-1 focus:ring-2 ring-red-900 border-transparent"
           placeholder="Search..."
-          // value={search}
+          value={search}
           onChange={(e) => {
             setSearch(e.target.value);
           }}
         />
       </div>
       <div className="text-center font-bold text-red-900 m-5 p-5">
-        <div>Countries (between 0 and 250):</div>
+        <div>Countries: {rangeValue}</div>
         <input
           defaultValue={rangeValue}
           type="range"
