@@ -11,10 +11,13 @@ function Home() {
   useEffect(() => {
     fetchData();
   }, []);
+
+
   console.log("search", search);
   console.log("rangeValue", rangeValue);
 
-  const showFlags = data.map((country, ix) => {
+  
+  const showFlags = data.slice(0, rangeValue).map((country, ix) => {
     return (
       <div key={ix} className="m-3 p-2">
         <img
@@ -52,7 +55,7 @@ function Home() {
       <div className="text-center text-3xl font-bold text-red-900 m-5">
         World Flags
       </div>
-      <div class="text-center text-gray-500 m-5 p-5">
+      <div className="text-center text-gray-500 m-5 p-5">
         <input
           type="text"
           className="p-2 rounded rounded-full bg-white outline-none ring-1 focus:ring-2 ring-red-900 border-transparent"
@@ -63,15 +66,16 @@ function Home() {
           }}
         />
       </div>
-      <div class="text-center text-gray-500 m-5 p-5">
-        <label for="points">Countries (between 0 and 250):</label>
+      <div className="text-center font-bold text-red-900 m-5 p-5">
+        <div>Countries (between 0 and 250):</div>
         <input
           defaultValue={rangeValue}
           type="range"
-          id="points"
-          name="points"
-          min="0"
+          min="1"
           max="250"
+          onChange={(e) => {
+            setRangeValue(e.target.value);
+          }}
         ></input>
       </div>
 
