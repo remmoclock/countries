@@ -5,6 +5,14 @@ import Loader from "../../components/Loader/Loader";
 function Home() {
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [search, setSearch] = useState("");
+  const [rangeValue, setRangeValue] = useState(250);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log("search", search);
+  console.log("rangeValue", rangeValue);
 
   const showFlags = data.map((country, ix) => {
     return (
@@ -18,6 +26,16 @@ function Home() {
     );
   });
 
+  const filteredCountries =
+    data &&
+    data.filter((flag) => {
+      return (
+        flag &&
+        flag.name &&
+        flag.name.common.toLowerCase().includes(search.toLowerCase())
+      );
+    });
+
   const fetchData = () => {
     axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
       const data = res.data;
@@ -26,10 +44,6 @@ function Home() {
       setLoader(false);
     });
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return loader ? (
     <Loader />
@@ -41,10 +55,24 @@ function Home() {
       <div class="text-center text-gray-500 m-5 p-5">
         <input
           type="text"
-          class="p-2 rounded rounded-full bg-white outline-none ring-1 focus:ring-2 ring-yellow-600 border-transparent"
-          placeholder="search..."
-          value=""
+          className="p-2 rounded rounded-full bg-white outline-none ring-1 focus:ring-2 ring-red-900 border-transparent"
+          placeholder="Search..."
+          // value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
         />
+      </div>
+      <div class="text-center text-gray-500 m-5 p-5">
+        <label for="points">Countries (between 0 and 250):</label>
+        <input
+          defaultValue={rangeValue}
+          type="range"
+          id="points"
+          name="points"
+          min="0"
+          max="250"
+        ></input>
       </div>
 
       <div className="flex flex-wrap justify-center">{showFlags}</div>
