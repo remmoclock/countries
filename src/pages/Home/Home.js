@@ -66,7 +66,7 @@ function Home() {
         />
       </div>
       <div className="text-center font-bold text-red-900 m-5 p-5">
-        <div>Countries: {rangeValue}</div>
+        <div>{rangeValue > 1 ? "Countries" : "Country"}: {rangeValue}</div>
         <input
           className="w-[200px] h-2 appearance-none rounded cursor-pointer"
           defaultValue={rangeValue}
@@ -74,7 +74,7 @@ function Home() {
           min="1"
           max="250"
           onChange={(e) => {
-            setRangeValue(e.target.value);
+            setRangeValue(parseInt(e.target.value));
           }}
           value={rangeValue}
         ></input>
@@ -92,7 +92,7 @@ function Home() {
             </div>
 
             <button
-              onClick={() => setRangeValue(parseInt(rangeValue) + 1)}
+              onClick={() => setRangeValue(rangeValue + 1)}
               className="font-semibold bg-red-900 text-white w-20 flex rounded-r cursor-pointer"
               disabled={rangeValue > 249}
             >
