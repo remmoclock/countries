@@ -52,7 +52,7 @@ function Home() {
   ) : (
     <div className="">
       <div className="text-center text-3xl font-bold text-red-900 m-5">
-        World Countries
+        World Countries 🌎
       </div>
       <div className="text-center text-gray-500 m-5 p-5">
         <input
