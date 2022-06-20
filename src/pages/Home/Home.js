@@ -52,7 +52,7 @@ function Home() {
   ) : (
     <div className="">
       <div className="text-center text-3xl font-bold text-red-900 m-5">
-        World Flags
+        World Countries
       </div>
       <div className="text-center text-gray-500 m-5 p-5">
         <input
@@ -68,6 +68,7 @@ function Home() {
       <div className="text-center font-bold text-red-900 m-5 p-5">
         <div>Countries: {rangeValue}</div>
         <input
+          className="w-[200px] h-2 appearance-none rounded cursor-pointer"
           defaultValue={rangeValue}
           type="range"
           min="1"
@@ -76,6 +77,26 @@ function Home() {
             setRangeValue(e.target.value);
           }}
         ></input>
+        <div className="text-center flex justify-center m-5">
+          <div className="flex flex-row h-6 w-24">
+            <button
+              onClick={() => setRangeValue(rangeValue - 1)}
+              className={`font-semibold  bg-red-900  text-white  h-full w-20 flex rounded-l  cursor-pointer`}
+            >
+              <span className="m-auto">-</span>
+            </button>
+            <div className="bg-white w-24 p-2 text-xs  flex items-center justify-center cursor-default">
+              <span>{rangeValue}</span>
+            </div>
+
+            <button
+              onClick={() => setRangeValue(rangeValue + 1)}
+              className="font-semibold bg-red-900  text-white  h-full w-20 flex rounded-r  cursor-pointer"
+            >
+              <span className="m-auto">+</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-center">{showFlags}</div>
