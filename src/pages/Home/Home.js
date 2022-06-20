@@ -34,15 +34,6 @@ function Home() {
       );
     });
 
-  const filteredCountries =
-    data &&
-    data.filter((flag) => {
-      return (
-        flag &&
-        flag.name &&
-        flag.name.common.toLowerCase().includes(search.toLowerCase())
-      );
-    });
 
   const fetchData = () => {
     axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
