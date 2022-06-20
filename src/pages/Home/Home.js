@@ -81,17 +81,19 @@ function Home() {
           <div className="flex flex-row h-6 w-24">
             <button
               onClick={() => setRangeValue(rangeValue - 1)}
-              className={`font-semibold  bg-red-900  text-white  h-full w-20 flex rounded-l  cursor-pointer`}
+              className="font-semibold bg-red-900 text-white w-20 flex rounded-l cursor-pointer"
+              disabled={rangeValue < 1}
             >
               <span className="m-auto">-</span>
             </button>
-            <div className="bg-white w-24 p-2 text-xs  flex items-center justify-center cursor-default">
+            <div className="bg-white w-24 p-2 text-xs flex items-center justify-center cursor-default">
               <span>{rangeValue}</span>
             </div>
 
             <button
-              onClick={() => setRangeValue(rangeValue + 1)}
-              className="font-semibold bg-red-900  text-white  h-full w-20 flex rounded-r  cursor-pointer"
+              onClick={() => setRangeValue(parseInt(rangeValue) + 1)}
+              className="font-semibold bg-red-900 text-white w-20 flex rounded-r cursor-pointer"
+              disabled={rangeValue > 249}
             >
               <span className="m-auto">+</span>
             </button>
