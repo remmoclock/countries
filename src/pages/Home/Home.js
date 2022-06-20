@@ -29,11 +29,14 @@ function Home() {
             src={country.flags.svg}
             alt=""
           />
-          <div className="text-center">{country.name.common}</div>
+          <div className="text-center">
+            {country.name.common.length > 10
+              ? country.name.common.substring(0, 10) + "..."
+              : country.name.common}
+          </div>
         </div>
       );
     });
-
 
   const fetchData = () => {
     axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
