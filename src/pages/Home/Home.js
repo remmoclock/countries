@@ -76,6 +76,7 @@ function Home() {
           onChange={(e) => {
             setRangeValue(e.target.value);
           }}
+          value={rangeValue}
         ></input>
         <div className="text-center flex justify-center m-5">
           <div className="flex flex-row h-6 w-24">
