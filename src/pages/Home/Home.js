@@ -25,7 +25,7 @@ function Home() {
       return (
         <div key={ix} className="m-3 p-2">
           <img
-            className="object-cover w-[150px] h-[100px] rounded-full"
+            className="object-cover w-[150px] h-[100px] rounded-xl"
             src={country.flags.svg}
             alt=""
           />
