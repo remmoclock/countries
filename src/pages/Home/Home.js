@@ -7,7 +7,7 @@ function Home() {
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
   const [rangeValue, setRangeValue] = useState(250);
-  const continents = ['Africa', 'Europe', "Asia", "Oceania", "America"]
+  const continents = ["Africa", "Europe", "Asia", "Oceania", "America"];
 
   useEffect(() => {
     fetchData();
@@ -67,7 +67,9 @@ function Home() {
         />
       </div>
       <div className="text-center font-bold text-red-900 m-5 p-5">
-        <div>{rangeValue > 1 ? "Countries" : "Country"}: {rangeValue}</div>
+        <div>
+          {rangeValue > 1 ? "Countries" : "Country"}: {rangeValue}
+        </div>
         <input
           className="w-[200px] h-2 appearance-none rounded cursor-pointer"
           defaultValue={rangeValue}
@@ -101,8 +103,15 @@ function Home() {
             </button>
           </div>
         </div>
+        {continents.map((continent) => {
+          return (
+            <>
+              <input type="radio" name="continentRadio" id={continent} />
+              <label className="m-3 p-1" htmlFor={continent}>{continent}</label>
+            </>
+          );
+        })}
       </div>
-
       <div className="flex flex-wrap justify-center">{showFlags}</div>
     </div>
   );
