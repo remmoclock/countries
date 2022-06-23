@@ -115,7 +115,7 @@ function Home() {
                   setSelectedRadio(e.target.id);
                 }}
               />
-              <label className="m-3 p-1" htmlFor={continent}>
+              <label className="mr-3 p-0.5" htmlFor={continent}>
                 {continent}
               </label>
             </>
