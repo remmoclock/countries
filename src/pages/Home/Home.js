@@ -7,6 +7,7 @@ function Home() {
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
   const [rangeValue, setRangeValue] = useState(250);
+  const continents = ['Africa', 'Europe', "Asia", "Oceania", "America"]
 
   useEffect(() => {
     fetchData();
