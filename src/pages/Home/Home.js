@@ -7,6 +7,7 @@ function Home() {
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
   const [rangeValue, setRangeValue] = useState(250);
+  const [selectedRadio, setSelectedRadio] = useState();
   const continents = ["Africa", "Europe", "Asia", "Oceania", "America"];
 
   useEffect(() => {
@@ -15,6 +16,7 @@ function Home() {
 
   console.log("search", search);
   console.log("rangeValue", rangeValue);
+  console.log("selectedRadio", selectedRadio);
 
   const showFlags = data
     .sort((a, b) => a.name.common.localeCompare(b.name.common))
@@ -72,7 +74,6 @@ function Home() {
         </div>
         <input
           className="w-[200px] h-2 appearance-none rounded cursor-pointer"
-          defaultValue={rangeValue}
           type="range"
           min="1"
           max="250"
@@ -106,8 +107,17 @@ function Home() {
         {continents.map((continent) => {
           return (
             <>
-              <input type="radio" name="continentRadio" id={continent} />
-              <label className="m-3 p-1" htmlFor={continent}>{continent}</label>
+              <input
+                type="radio"
+                name="continentRadio"
+                id={continent}
+                onChange={(e) => {
+                  setSelectedRadio(e.target.id);
+                }}
+              />
+              <label className="m-3 p-1" htmlFor={continent}>
+                {continent}
+              </label>
             </>
           );
         })}
