@@ -20,7 +20,7 @@ function Home() {
 
   const showFlags = data
     .sort((a, b) => a.name.common.localeCompare(b.name.common))
-    .filter(country => country.continents[0].includes(selectedRadio))
+    .filter((country) => country.continents[0].includes(selectedRadio))
     .filter((flag) => {
       return flag.name.common.toLowerCase().includes(search.toLowerCase());
     })
@@ -105,6 +105,7 @@ function Home() {
             </button>
           </div>
         </div>
+
         {continents.map((continent) => {
           return (
             <>
@@ -122,7 +123,13 @@ function Home() {
             </>
           );
         })}
+        {selectedRadio && (
+          <button className="text-center" onClick={() => setSelectedRadio("")}>
+            ❌ Cancel
+          </button>
+        )}
       </div>
+
       <div className="flex flex-wrap justify-center">{showFlags}</div>
     </div>
   );
