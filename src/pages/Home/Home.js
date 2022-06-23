@@ -7,7 +7,7 @@ function Home() {
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
   const [rangeValue, setRangeValue] = useState(250);
-  const [selectedRadio, setSelectedRadio] = useState();
+  const [selectedRadio, setSelectedRadio] = useState("");
   const continents = ["Africa", "Europe", "Asia", "Oceania", "America"];
 
   useEffect(() => {
@@ -20,6 +20,7 @@ function Home() {
 
   const showFlags = data
     .sort((a, b) => a.name.common.localeCompare(b.name.common))
+    .filter(country => country.continents[0].includes(selectedRadio))
     .filter((flag) => {
       return flag.name.common.toLowerCase().includes(search.toLowerCase());
     })
