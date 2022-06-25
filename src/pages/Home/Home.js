@@ -50,7 +50,10 @@ function Home() {
     <Loader />
   ) : (
     <div className="">
-      <div className="text-center text-3xl font-bold text-red-900 m-5 cursor-pointer" onClick={() => window.location.reload(false)}>
+      <div
+        className="text-center text-3xl font-bold text-red-900 m-5 cursor-pointer"
+        onClick={() => window.location.reload(false)}
+      >
         World Countries 🌎
       </div>
       <div className="text-center text-gray-500 m-5 p-5">
@@ -122,7 +125,13 @@ function Home() {
         </ul>
 
         {selectedRadio && (
-          <button className="text-center" onClick={() => setSelectedRadio("")}>
+          <button
+            className="text-center"
+            onClick={() => {
+              setSelectedRadio("");
+              setRangeValue(250);
+            }}
+          >
             ❌ Cancel
           </button>
         )}
