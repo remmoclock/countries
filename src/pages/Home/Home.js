@@ -34,8 +34,8 @@ function Home() {
             alt=""
           />
           <div className="text-center">
-            {country.name.common.length > 10
-              ? country.name.common.substring(0, 10) + "..."
+            {country.name.common.length > 15
+              ? country.name.common.substring(0, 15) + "..."
               : country.name.common}
           </div>
         </div>
@@ -110,6 +110,7 @@ function Home() {
           return (
             <>
               <input
+                checked={continent === selectedRadio}
                 type="radio"
                 name="continentRadio"
                 id={continent}
