@@ -100,25 +100,27 @@ function Home() {
             </button>
           </div>
         </div>
+        <ul className="flex flex-wrap justify-center ">
+          {continents.map((continent, ix) => {
+            return (
+              <li className="m-3 " key={ix}>
+                <input
+                  checked={continent === selectedRadio}
+                  type="radio"
+                  name="continentRadio"
+                  id={continent}
+                  onChange={(e) => {
+                    setSelectedRadio(e.target.id);
+                  }}
+                />
+                <label className="p-0.5" htmlFor={continent}>
+                  {continent}
+                </label>
+              </li>
+            );
+          })}
+        </ul>
 
-        {continents.map((continent) => {
-          return (
-            <>
-              <input
-                checked={continent === selectedRadio}
-                type="radio"
-                name="continentRadio"
-                id={continent}
-                onChange={(e) => {
-                  setSelectedRadio(e.target.id);
-                }}
-              />
-              <label className="mr-3 p-0.5" htmlFor={continent}>
-                {continent}
-              </label>
-            </>
-          );
-        })}
         {selectedRadio && (
           <button className="text-center" onClick={() => setSelectedRadio("")}>
             ❌ Cancel
