@@ -50,7 +50,7 @@ function Home() {
     <Loader />
   ) : (
     <div className="">
-      <div className="text-center text-3xl font-bold text-red-900 m-5">
+      <div className="text-center text-3xl font-bold text-red-900 m-5 cursor-pointer" onClick={() => window.location.reload(false)}>
         World Countries 🌎
       </div>
       <div className="text-center text-gray-500 m-5 p-5">
