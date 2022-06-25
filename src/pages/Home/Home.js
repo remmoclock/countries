@@ -14,10 +14,6 @@ function Home() {
     fetchData();
   }, []);
 
-  console.log("search", search);
-  console.log("rangeValue", rangeValue);
-  console.log("selectedRadio", selectedRadio);
-
   const showFlags = data
     .sort((a, b) => a.name.common.localeCompare(b.name.common))
     .filter((country) => country.continents[0].includes(selectedRadio))
@@ -45,7 +41,6 @@ function Home() {
   const fetchData = () => {
     axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
       const data = res.data;
-      console.log("data", data);
       setData(data);
       setLoader(false);
     });
