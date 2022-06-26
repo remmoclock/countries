@@ -25,7 +25,7 @@ function Home() {
       return (
         <div key={ix} className="m-3 p-2">
           <img
-            className="object-cover w-[150px] h-[100px] rounded-xl"
+            className="object-cover w-[150px] h-[100px] rounded-xl shadow-2xl"
             src={country.flags.svg}
             alt=""
           />
@@ -37,6 +37,18 @@ function Home() {
         </div>
       );
     });
+
+  let countriesByContinentNumber =
+    data &&
+    data.filter((country) => country.continents[0].includes(selectedRadio));
+
+  console.log(
+    "countriesByContinentNumber",
+    countriesByContinentNumber && countriesByContinentNumber
+  );
+
+  console.log("rangeValue", rangeValue);
+  console.log("showFlags", showFlags);
 
   const fetchData = () => {
     axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
@@ -76,10 +88,10 @@ function Home() {
           type="range"
           min="1"
           max="250"
+          value={rangeValue}
           onChange={(e) => {
             setRangeValue(parseInt(e.target.value));
           }}
-          value={rangeValue}
         ></input>
         <div className="text-center flex justify-center m-5">
           <div className="flex flex-row h-6 w-24">
@@ -114,6 +126,10 @@ function Home() {
                   id={continent}
                   onChange={(e) => {
                     setSelectedRadio(e.target.id);
+                    // setRangeValue(
+                    //   showFlags &&
+                    //   showFlags.length
+                    // );
                   }}
                 />
                 <label className="p-0.5" htmlFor={continent}>
