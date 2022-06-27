@@ -23,13 +23,13 @@ function Home() {
     .slice(0, rangeValue)
     .map((country, ix) => {
       return (
-        <div key={ix} className="m-3 p-2">
+        <div key={ix} className="m-3 p-2 cursor-pointer hover:animate-pulse  ">
           <img
-            className="object-cover w-[150px] h-[100px] rounded-xl shadow-2xl"
+            className="object-cover w-[150px] h-[100px] rounded-xl shadow-lg shadow-zinc-600  "
             src={country.flags.svg}
             alt=""
           />
-          <div className="text-center">
+          <div className="text-center text-white font-semibold">
             {country.name.common.length > 15
               ? country.name.common.substring(0, 15) + "..."
               : country.name.common}
@@ -63,15 +63,15 @@ function Home() {
   ) : (
     <div className="">
       <div
-        className="text-center text-3xl font-bold text-red-900 m-5 cursor-pointer"
+        className="text-center text-8xl font-bold text-blue-600 m-3 cursor-pointer"
         onClick={() => window.location.reload(false)}
       >
-        World Countries 🌎
+        🌎
       </div>
-      <div className="text-center text-gray-500 m-5 p-5">
+      <div className="text-center m-3 p-3">
         <input
           type="text"
-          className="p-2 rounded rounded-full bg-white outline-none ring-1 focus:ring-2 ring-red-900 border-transparent"
+          className="p-2 rounded rounded-full outline-none ring-1 focus:ring-2 ring-blue-500 border-transparent"
           placeholder="Search..."
           value={search}
           onChange={(e) => {
@@ -79,7 +79,7 @@ function Home() {
           }}
         />
       </div>
-      <div className="text-center font-bold text-red-900 m-5 p-5">
+      <div className="text-center font-bold text-blue-300 m-5 p-5">
         <div>
           {rangeValue > 1 ? "Countries" : "Country"}: {rangeValue}
         </div>
@@ -97,28 +97,28 @@ function Home() {
           <div className="flex flex-row h-6 w-24">
             <button
               onClick={() => setRangeValue(rangeValue - 1)}
-              className="font-semibold bg-red-900 text-white w-20 flex rounded-l cursor-pointer"
+              className="font-semibold bg-blue-500 text-black w-20 flex rounded-l cursor-pointer"
               disabled={rangeValue < 1}
             >
-              <span className="m-auto">-</span>
+              <span className="m-auto text-white">-</span>
             </button>
-            <div className="bg-white w-24 p-2 text-xs flex items-center justify-center cursor-default">
+            <div className="bg-white w-24 text-blue-600 p-2 text-xs flex items-center justify-center cursor-default">
               <span>{rangeValue}</span>
             </div>
 
             <button
               onClick={() => setRangeValue(rangeValue + 1)}
-              className="font-semibold bg-red-900 text-white w-20 flex rounded-r cursor-pointer"
+              className="font-semibold bg-blue-500 text-black w-20 flex rounded-r cursor-pointer"
               disabled={rangeValue > 249}
             >
-              <span className="m-auto">+</span>
+              <span className="m-auto text-white">+</span>
             </button>
           </div>
         </div>
         <ul className="flex flex-wrap justify-center ">
           {continents.map((continent, ix) => {
             return (
-              <li className="m-3 " key={ix}>
+              <li className="m-3 text-blue-300" key={ix}>
                 <input
                   checked={continent === selectedRadio}
                   type="radio"
