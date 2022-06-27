@@ -23,7 +23,7 @@ function Home() {
     .slice(0, rangeValue)
     .map((country, ix) => {
       return (
-        <div key={ix} className="m-3 p-2 cursor-pointer hover:animate-pulse  ">
+        <div key={ix} className="m-3 p-2 cursor-pointer hover:animate-pulse">
           <img
             className="object-cover w-[150px] h-[100px] rounded-xl shadow-lg shadow-zinc-600  "
             src={country.flags.svg}
@@ -63,7 +63,7 @@ function Home() {
   ) : (
     <div className="">
       <div
-        className="text-center text-8xl font-bold text-blue-600 m-3 cursor-pointer"
+        className="text-center text-8xl font-bold text-blue-600 m-3 cursor-pointer hover:animate-spin"
         onClick={() => window.location.reload(false)}
       >
         🌎
