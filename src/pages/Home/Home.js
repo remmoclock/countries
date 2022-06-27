@@ -75,7 +75,7 @@ function Home() {
         <input
           className="w-[200px] h-2 appearance-none rounded cursor-pointer"
           type="range"
-          min="1"
+          min="0"
           max="250"
           value={rangeValue}
           onChange={(e) => {
