@@ -68,20 +68,9 @@ function Home() {
       >
         🌎
       </div>
-      <div className="text-center m-3 p-3">
-        <input
-          type="text"
-          className="p-2 rounded rounded-full outline-none ring-1 focus:ring-2 ring-blue-500 border-transparent"
-          placeholder="Search..."
-          value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
-        />
-      </div>
-      <div className="text-center font-bold text-blue-300 m-5 p-5">
+      <div className="text-center font-bold text-blue-300 m-2">
         <div>
-          {rangeValue > 1 ? "Countries" : "Country"}: {rangeValue}
+        {rangeValue} {rangeValue > 1 ? "Countries" : "Country"} 
         </div>
         <input
           className="w-[200px] h-2 appearance-none rounded cursor-pointer"
@@ -93,7 +82,7 @@ function Home() {
             setRangeValue(parseInt(e.target.value));
           }}
         ></input>
-        <div className="text-center flex justify-center m-5">
+        <div className="text-center flex justify-center m-3">
           <div className="flex flex-row h-6 w-24">
             <button
               onClick={() => setRangeValue(rangeValue - 1)}
@@ -115,7 +104,7 @@ function Home() {
             </button>
           </div>
         </div>
-        <ul className="flex flex-wrap justify-center ">
+        <ul className="flex flex-wrap justify-center">
           {continents.map((continent, ix) => {
             return (
               <li className="m-3 text-blue-300" key={ix}>
@@ -151,6 +140,17 @@ function Home() {
             ❌ Cancel
           </button>
         )}
+      </div>
+      <div className="text-center m-2">
+        <input
+          type="text"
+          className="p-2 rounded rounded-full outline-none ring-1 focus:ring-2 ring-blue-500 border-transparent"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        />
       </div>
 
       <div className="flex flex-wrap justify-center">{showFlags}</div>
