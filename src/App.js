@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App bg-black overflow-auto w-full h-screen ">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/country/:id" element={<Country />} />
         <Route path="/404" element={<Err404 />} />
         <Route path="*" element={<Navigate replace to="/404" />} />
