@@ -35,7 +35,7 @@ function Home() {
       return (
         <Link
           key={ix}
-          to={`/country/${country.name.common}`}
+          to={`/country/${country.name.common.replace(/\s+/g, "-").trim()}`}
           state={{ country }}
         >
           <div className="m-3 p-2 cursor-pointer hover:animate-pulse">
