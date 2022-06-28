@@ -1,5 +1,5 @@
 import Home from "./pages/Home/Home";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Country from "./components/Country";
 import Err404 from "./pages/Err404/Err404";
 
@@ -9,8 +9,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/country/:id" element={<Country />} />
-        <Route path="/404" element={<Err404 />} />
-        <Route path="*" element={<Navigate replace to="/404" />} />
+        <Route path="*" element={<Err404 />} />
       </Routes>
     </div>
   );
