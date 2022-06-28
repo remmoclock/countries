@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import Home from "../pages/Home/Home";
 
 function Card() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function Card() {
           <p className="text-center mb-5">
             <a
               target="_blank"
+              rel="noreferrer"
               className="cursor-pointer text-indigo-500"
               href={location.state.country.maps.googleMaps}
             >
@@ -33,7 +35,7 @@ function Card() {
           <p className="text-center mb-5 text-white">
             Population : {location.state.country.population}
           </p>
-          <Link to="/">
+          <a href="https://remmoclock.github.io/countries/">
             <div className="w-full rounded-md bg-indigo-600 text-center  py-2 text-indigo-100 hover:bg-indigo-500 hover:shadow-md duration-75">
               Go Back
             </div>
