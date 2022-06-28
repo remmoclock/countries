@@ -39,7 +39,7 @@ function Card() {
             <div className="w-full rounded-md bg-indigo-600 text-center  py-2 text-indigo-100 hover:bg-indigo-500 hover:shadow-md duration-75">
               Go Back
             </div>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
