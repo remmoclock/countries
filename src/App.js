@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App bg-black overflow-auto w-full h-screen ">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Home />} />
         <Route path="/country/:id" element={<Country />} />
       </Routes>
     </div>
