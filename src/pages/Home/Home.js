@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
-import Card from "../../components/Card";
+import { Link  } from "react-router-dom";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -33,18 +33,20 @@ function Home() {
     .slice(0, rangeValue)
     .map((country, ix) => {
       return (
-        <div key={ix} className="m-3 p-2 cursor-pointer hover:animate-pulse">
-          <img
-            className="object-cover w-[150px] h-[100px] rounded-xl shadow-lg shadow-zinc-600"
-            src={country.flags.svg}
-            alt=""
-          />
-          <div className="text-center text-white font-semibold">
-            {country.name.common.length > 15
-              ? country.name.common.substring(0, 15) + "..."
-              : country.name.common}
+        <Link to={`/country/${country.name.common}`} state={{ country }}>
+          <div key={ix} className="m-3 p-2 cursor-pointer hover:animate-pulse">
+            <img
+              className="object-cover w-[150px] h-[100px] rounded-xl shadow-lg shadow-zinc-600"
+              src={country.flags.svg}
+              alt=""
+            />
+            <div className="text-center text-white font-semibold">
+              {country.name.common.length > 15
+                ? country.name.common.substring(0, 15) + "..."
+                : country.name.common}
+            </div>
           </div>
-        </div>
+        </Link>
       );
     });
 
@@ -53,12 +55,12 @@ function Home() {
   ) : (
     <>
       <div
-        className="text-center text-8xl font-bold text-blue-600 m-3 cursor-pointer hover:animate-spin"
+        className="text-center text-8xl font-bold text-indigo-500 m-3 cursor-pointer hover:animate-spin"
         onClick={() => window.location.reload(false)}
       >
         🌎
       </div>
-      <div className="text-center font-bold text-blue-300 m-2">
+      <div className="text-center font-bold text-indigo-500 m-2">
         <div>
           {rangeValue} {rangeValue > 1 ? "Countries" : "Country"}
         </div>
@@ -76,18 +78,18 @@ function Home() {
           <div className="flex flex-row h-6 w-24">
             <button
               onClick={() => setRangeValue(rangeValue - 1)}
-              className="font-semibold bg-blue-500 text-black w-20 flex rounded-l cursor-pointer"
+              className="font-semibold bg-indigo-500 text-black w-20 flex rounded-l cursor-pointer"
               disabled={rangeValue < 1}
             >
               <span className="m-auto text-white">-</span>
             </button>
-            <div className="bg-white w-24 text-blue-600 p-2 text-xs flex items-center justify-center cursor-default">
+            <div className="bg-white w-24 text-indigo-500 p-2 text-xs flex items-center justify-center cursor-default">
               <span>{rangeValue}</span>
             </div>
 
             <button
               onClick={() => setRangeValue(rangeValue + 1)}
-              className="font-semibold bg-blue-500 text-black w-20 flex rounded-r cursor-pointer"
+              className="font-semibold bg-indigo-500 text-black w-20 flex rounded-r cursor-pointer"
               disabled={rangeValue > 249}
             >
               <span className="m-auto text-white">+</span>
@@ -97,7 +99,7 @@ function Home() {
         <ul className="flex flex-wrap justify-center">
           {continents.map((continent, ix) => {
             return (
-              <li className="m-3 text-blue-300" key={ix}>
+              <li className="m-3 text-indigo-500" key={ix}>
                 <input
                   checked={continent === selectedRadio}
                   type="radio"
@@ -134,7 +136,7 @@ function Home() {
       <div className="text-center m-2">
         <input
           type="text"
-          className="p-2 rounded rounded-full outline-none ring-1 focus:ring-2 ring-blue-500 border-transparent"
+          className="p-2 rounded rounded-full outline-none ring-1 focus:ring-2 ring-indigo-500 border-transparent"
           placeholder="Search..."
           value={search}
           onChange={(e) => {
