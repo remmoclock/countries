@@ -58,11 +58,9 @@ function Home() {
     <Loader />
   ) : (
     <>
-      <Link to="/">
-        <div className="text-center text-8xl font-bold text-indigo-500 m-3 cursor-pointer hover:animate-spin">
-          🌎
-        </div>
-      </Link>
+      <div className="text-center text-8xl font-bold text-indigo-500 m-3 cursor-pointer hover:animate-spin">
+        🌎
+      </div>
       <div className="text-center font-bold text-indigo-500 m-2">
         <div>
           {rangeValue} {rangeValue > 1 ? "Countries" : "Country"}
