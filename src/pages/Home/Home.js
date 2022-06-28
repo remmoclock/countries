@@ -38,18 +38,6 @@ function Home() {
       );
     });
 
-  let countriesByContinentNumber =
-    data &&
-    data.filter((country) => country.continents[0].includes(selectedRadio));
-
-  console.log(
-    "countriesByContinentNumber",
-    countriesByContinentNumber && countriesByContinentNumber
-  );
-
-  console.log("rangeValue", rangeValue);
-  console.log("showFlags", showFlags);
-
   const fetchData = () => {
     axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
       const data = res.data;
