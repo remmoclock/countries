@@ -7,9 +7,9 @@ function App() {
   return (
     <div className="App bg-black overflow-auto w-full h-screen ">
       <Routes>
-        <Route exact path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/country/:id" element={<Country />} />
-        <Route path="*" element={<Err404 />} />
+        {/* <Route path="*" element={<Err404 />} /> */}
       </Routes>
     </div>
   );
