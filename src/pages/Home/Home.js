@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../components/Loader/Loader";
+import Card from "../../components/Card";
 
 function Home() {
   const [data, setData] = useState([]);
@@ -9,6 +10,15 @@ function Home() {
   const [rangeValue, setRangeValue] = useState(250);
   const [selectedRadio, setSelectedRadio] = useState("");
   const continents = ["Africa", "Europe", "Asia", "Oceania", "America"];
+
+  // API
+  const fetchData = () => {
+    axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
+      const data = res.data;
+      setData(data);
+      setLoader(false);
+    });
+  };
 
   useEffect(() => {
     fetchData();
@@ -25,7 +35,7 @@ function Home() {
       return (
         <div key={ix} className="m-3 p-2 cursor-pointer hover:animate-pulse">
           <img
-            className="object-cover w-[150px] h-[100px] rounded-xl shadow-lg shadow-zinc-600  "
+            className="object-cover w-[150px] h-[100px] rounded-xl shadow-lg shadow-zinc-600"
             src={country.flags.svg}
             alt=""
           />
@@ -38,18 +48,10 @@ function Home() {
       );
     });
 
-  const fetchData = () => {
-    axios.get(`https://restcountries.com/v3.1/all`).then((res) => {
-      const data = res.data;
-      setData(data);
-      setLoader(false);
-    });
-  };
-
   return loader ? (
     <Loader />
   ) : (
-    <div className="">
+    <>
       <div
         className="text-center text-8xl font-bold text-blue-600 m-3 cursor-pointer hover:animate-spin"
         onClick={() => window.location.reload(false)}
@@ -58,7 +60,7 @@ function Home() {
       </div>
       <div className="text-center font-bold text-blue-300 m-2">
         <div>
-        {rangeValue} {rangeValue > 1 ? "Countries" : "Country"} 
+          {rangeValue} {rangeValue > 1 ? "Countries" : "Country"}
         </div>
         <input
           className="w-[200px] h-2 appearance-none rounded cursor-pointer"
@@ -140,9 +142,8 @@ function Home() {
           }}
         />
       </div>
-
       <div className="flex flex-wrap justify-center">{showFlags}</div>
-    </div>
+    </>
   );
 }
 
