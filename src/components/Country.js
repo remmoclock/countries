@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 function Card() {
   const location = useLocation();
   return (
-    <div className="flex flex-col h-screen items-center justify-evenly">
+    <div className="flex flex-col items-center justify-evenly">
       <div className="text-center text-7xl font-bold text-indigo-500 m-1">
         {location.state.country.name.common} {location.state.country.flag}
       </div>
