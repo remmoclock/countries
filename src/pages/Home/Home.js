@@ -38,7 +38,7 @@ function Home() {
           to={`/country/${country.name.common.replace(/\s+/g, "-").trim()}`}
           state={{ country }}
         >
-          <div className="m-3 p-2 cursor-pointer hover:animate-pulse">
+          <div className="m-3 p-2 cursor-pointer hover:animate-pulse ">
             <img
               className="object-cover w-[150px] h-[100px] rounded-xl shadow-lg shadow-zinc-600"
               src={country.flags.svg}
