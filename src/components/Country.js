@@ -1,7 +1,12 @@
-import React from "react";
+import {useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Card() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const location = useLocation();
   return (
     <div className="flex flex-col items-center justify-evenly p-10 ">
