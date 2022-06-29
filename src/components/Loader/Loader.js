@@ -1,8 +1,8 @@
 function Loader() {
   return (
-    <div>
+    <div className="flex justify-center items-center h-screen  ">
       <img
-        className=" object-contain w-full h-screen"
+        className=" object-contain w-[50%] h-[50%]"
         src={process.env.PUBLIC_URL + "/gifWorld.gif"}
         alt=""
       />
