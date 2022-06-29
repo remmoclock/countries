@@ -4,8 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 function Card() {
   const location = useLocation();
   return (
-    <div className="flex flex-col items-center h-full justify-evenly">
-      <div className="text-center text-4xl font-bold text-indigo-500 md:text-7xl">
+    <div className="flex flex-col items-center justify-evenly m-3">
+      <div className="text-center text-4xl font-bold text-indigo-500 md:text-7xl m-2">
         {location.state.country.name.common} {location.state.country.flag}
       </div>
       <div className="max-w-sm overflow-hidden rounded-xl shadow-md duration-200 hover:scale-105 hover:shadow-xl">
