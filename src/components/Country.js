@@ -3,9 +3,9 @@ import { Link, useLocation } from "react-router-dom";
 
 function Card() {
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
   
   const location = useLocation();
   return (
@@ -13,7 +13,7 @@ function Card() {
       <div className="text-center text-4xl font-bold text-indigo-500 md:text-7xl m-5">
         {location.state.country.name.common} {location.state.country.flag}
       </div>
-      <div className="max-w-sm overflow-hidden rounded-xl shadow-md duration-200 hover:scale-105 hover:shadow-xl">
+      <div className="max-w-sm rounded-xl">
         <img
           src={location.state.country.flags.svg}
           alt=""
@@ -40,7 +40,7 @@ function Card() {
             Population : {location.state.country.population}
           </p>
           <Link to="/countries">
-            <div className="w-full rounded-md bg-indigo-600 text-center  py-2 text-indigo-100 hover:bg-indigo-500 hover:shadow-md duration-75">
+            <div className="w-full rounded-md bg-indigo-600 text-center p-2 text-indigo-100 hover:bg-indigo-500 hover:shadow-md duration-75">
               Go Back
             </div>
           </Link>
