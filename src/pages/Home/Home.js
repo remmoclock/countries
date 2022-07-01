@@ -7,7 +7,7 @@ function Home() {
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
-  const [rangeValue, setRangeValue] = useState(250);
+  const [rangeValue, setRangeValue] = useState(JSON.parse(localStorage.getItem("countries")) || 250);
   const [selectedRadio, setSelectedRadio] = useState(JSON.parse(localStorage.getItem("continent")) || "");
   const continents = ["Africa", "Europe", "Asia", "Oceania", "America"];
 
@@ -27,7 +27,8 @@ function Home() {
   // Local storage
   useEffect(() => {
     localStorage.setItem("continent", JSON.stringify(selectedRadio));
-  }, [selectedRadio]);
+    localStorage.setItem("countries", JSON.stringify(rangeValue));
+  }, [selectedRadio, rangeValue]);
 
 
   const showFlags = data
