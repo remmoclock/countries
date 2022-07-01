@@ -8,7 +8,7 @@ function Home() {
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
   const [rangeValue, setRangeValue] = useState(250);
-  const [selectedRadio, setSelectedRadio] = useState("");
+  const [selectedRadio, setSelectedRadio] = useState(JSON.parse(localStorage.getItem("continent")) || "");
   const continents = ["Africa", "Europe", "Asia", "Oceania", "America"];
 
   // API
@@ -23,6 +23,12 @@ function Home() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  // Local storage
+  useEffect(() => {
+    localStorage.setItem("continent", JSON.stringify(selectedRadio));
+  }, [selectedRadio]);
+
 
   const showFlags = data
     .sort((a, b) => a.name.common.localeCompare(b.name.common))
