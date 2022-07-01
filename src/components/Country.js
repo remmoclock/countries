@@ -1,12 +1,6 @@
-import {useEffect} from "react";
 import { Link, useLocation } from "react-router-dom";
 
 function Card() {
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
-  
   const location = useLocation();
   return (
     <div className="flex flex-col items-center justify-evenly p-10 ">
@@ -14,11 +8,7 @@ function Card() {
         {location.state.country.name.common} {location.state.country.flag}
       </div>
       <div className="max-w-sm rounded-xl">
-        <img
-          src={location.state.country.flags.svg}
-          alt=""
-          className=""
-        />
+        <img src={location.state.country.flags.svg} alt="" className="" />
         <div className="p-5 text-base md:text-2xl">
           <p className="text-center mb-5">
             <a
