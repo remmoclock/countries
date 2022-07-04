@@ -118,10 +118,10 @@ function Home() {
                   id={continent}
                   onChange={(e) => {
                     setSelectedRadio(e.target.id);
-                    setRangeValue(
-                      showFlags &&
-                      showFlags.length
-                    );
+                    // setRangeValue(
+                    //   showFlags &&
+                    //   showFlags.length
+                    // );
                   }}
                 />
                 <label className="p-0.5" htmlFor={continent}>
@@ -155,7 +155,7 @@ function Home() {
           }}
         />
       </div>
-      <div className="flex flex-wrap justify-center text-white">{showFlags.length}</div>
+      {/* <div className="flex flex-wrap justify-center text-white">{showFlags.length}</div> */}
       <div className="flex flex-wrap justify-center">{showFlags}</div>
     </>
   );
