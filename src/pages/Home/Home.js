@@ -7,7 +7,7 @@ function Home() {
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState(true);
   const [search, setSearch] = useState("");
-  const [rangeValue, setRangeValue] = useState(JSON.parse(localStorage.getItem("countries")) || 250);
+  const [rangeValue, setRangeValue] = useState(localStorage.getItem("countries") || 250);
   const [selectedRadio, setSelectedRadio] = useState(JSON.parse(localStorage.getItem("continent")) || "");
   const continents = ["Africa", "Europe", "Asia", "Oceania", "America"];
 
@@ -22,12 +22,15 @@ function Home() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+    console.log('flags', showFlags && showFlags.length);
+    console.log('rangeValue', rangeValue);
+  }, [rangeValue]);
+  
 
   // Local storage
   useEffect(() => {
     localStorage.setItem("continent", JSON.stringify(selectedRadio));
-    localStorage.setItem("countries", JSON.stringify(rangeValue));
+    localStorage.setItem("countries", rangeValue);
   }, [selectedRadio, rangeValue]);
 
 
@@ -115,10 +118,10 @@ function Home() {
                   id={continent}
                   onChange={(e) => {
                     setSelectedRadio(e.target.id);
-                    // setRangeValue(
-                    //   showFlags &&
-                    //   showFlags.length
-                    // );
+                    setRangeValue(
+                      showFlags &&
+                      showFlags.length
+                    );
                   }}
                 />
                 <label className="p-0.5" htmlFor={continent}>
@@ -152,6 +155,7 @@ function Home() {
           }}
         />
       </div>
+      <div className="flex flex-wrap justify-center text-white">{showFlags.length}</div>
       <div className="flex flex-wrap justify-center">{showFlags}</div>
     </>
   );
