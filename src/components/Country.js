@@ -27,7 +27,7 @@ function Card() {
           )}
 
           <p className="text-center mb-5 text-white">
-            {location.state.country.population} inhabitants
+            {location.state.country.population.toLocaleString('en-US')} inhabitants
           </p>
           <Link to="/countries">
             <div className="w-full rounded-md bg-indigo-600 text-center p-2 text-indigo-100 hover:bg-indigo-500 hover:shadow-md duration-75">
